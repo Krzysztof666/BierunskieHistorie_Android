@@ -37,11 +37,9 @@ import com.google.maps.android.compose.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import pl.bierun.historie.R
-import pl.bierun.historie.data.AppLanguageManager
-import pl.bierun.historie.data.PoiRepository
-import pl.bierun.historie.data.PodcastRepository
-import pl.bierun.historie.data.UserProgressRepository
+import pl.bierun.historie.data.*
 import pl.bierun.historie.media.AudioPlayerManager
+import pl.bierun.historie.model.PoiImage
 import pl.bierun.historie.model.PoiItem
 import pl.bierun.historie.util.LocationUtils
 import java.util.Locale
@@ -55,6 +53,7 @@ fun MainScreen(
     audioPlayerManager: AudioPlayerManager,
     podcastRepository: PodcastRepository,
     userProgressRepository: UserProgressRepository,
+    archiveRepository: ArchiveRepository,
     isLocationPermissionGranted: Boolean
 ) {
     var currentLanguage by remember { mutableStateOf(languageManager.getCurrentLanguage()) }
@@ -91,7 +90,7 @@ fun MainScreen(
         var selectedPoi by remember { mutableStateOf<PoiItem?>(null) }
         var showLanguageMenu by remember { mutableStateOf(false) }
         var showPoiList by remember { mutableStateOf(false) }
-        var fullScreenImageUri by remember { mutableStateOf<String?>(null) }
+        var fullScreenImage by remember { mutableStateOf<PoiImage?>(null) }
         val sheetState = rememberModalBottomSheetState()
 
         var developerClickCount by remember { mutableIntStateOf(0) }
@@ -109,6 +108,9 @@ fun MainScreen(
         var activeMediaId by remember { mutableStateOf<String?>(null) }
 
         DisposableEffect(audioPlayerManager.player) {
+            val currentPlayer = audioPlayerManager.player
+            if (currentPlayer == null) return@DisposableEffect onDispose {}
+
             val listener = object : androidx.media3.common.Player.Listener {
                 override fun onIsPlayingChanged(playing: Boolean) {
                     isPlaying = playing
@@ -116,29 +118,32 @@ fun MainScreen(
                 override fun onPlaybackStateChanged(state: Int) {
                     isBuffering = state == androidx.media3.common.Player.STATE_BUFFERING
                     if (state == androidx.media3.common.Player.STATE_READY || state == androidx.media3.common.Player.STATE_BUFFERING) {
-                        val d = audioPlayerManager.player.duration
+                        val d = currentPlayer.duration
                         duration = if (d > 0) d else 0L
                     }
-                    currentTrackIndex = audioPlayerManager.player.currentMediaItemIndex
-                    totalTracks = audioPlayerManager.player.mediaItemCount
-                    activeMediaId = audioPlayerManager.player.currentMediaItem?.mediaId
+                    currentTrackIndex = currentPlayer.currentMediaItemIndex
+                    totalTracks = currentPlayer.mediaItemCount
+                    activeMediaId = currentPlayer.currentMediaItem?.mediaId
                 }
                 override fun onMediaItemTransition(mediaItem: androidx.media3.common.MediaItem?, reason: Int) {
                     currentPosition = 0L
                     duration = 0L
-                    currentTrackIndex = audioPlayerManager.player.currentMediaItemIndex
-                    totalTracks = audioPlayerManager.player.mediaItemCount
+                    currentTrackIndex = currentPlayer.currentMediaItemIndex
+                    totalTracks = currentPlayer.mediaItemCount
                     activeMediaId = mediaItem?.mediaId
                 }
             }
-            audioPlayerManager.player.addListener(listener)
-            onDispose { audioPlayerManager.player.removeListener(listener) }
+            currentPlayer.addListener(listener)
+            onDispose { currentPlayer.removeListener(listener) }
         }
 
-        LaunchedEffect(isPlaying) {
+        LaunchedEffect(isPlaying, audioPlayerManager.player) {
+            val currentPlayer = audioPlayerManager.player
+            if (currentPlayer == null) return@LaunchedEffect
+            
             while (isPlaying) {
-                currentPosition = audioPlayerManager.player.currentPosition
-                val d = audioPlayerManager.player.duration
+                currentPosition = currentPlayer.currentPosition
+                val d = currentPlayer.duration
                 if (d > 0) duration = d
                 delay(500)
             }
@@ -171,6 +176,11 @@ fun MainScreen(
             }
         }
 
+        val currentlyPlayingPoi = remember(activeMediaId, pois) {
+            val poiId = activeMediaId?.substringBeforeLast("_")
+            pois.find { it.id == poiId }
+        }
+
         Scaffold(
             topBar = {
                 if (currentTab == 0) {
@@ -193,6 +203,10 @@ fun MainScreen(
                             }
                         },
                         actions = {
+                            val infoUrl = stringResource(R.string.info_url)
+                            IconButton(onClick = { uriHandler.openUri(infoUrl) }) {
+                                Icon(Icons.Default.Info, contentDescription = stringResource(R.string.info_label))
+                            }
                             IconButton(onClick = { showPoiList = true }) { Icon(Icons.AutoMirrored.Filled.List, "Lista") }
                         IconButton(onClick = { uriHandler.openUri("https://www.buycoffee.to/chris43150") }) {
                             Icon(Icons.Default.VolunteerActivism, contentDescription = "Wesprzyj projekt", tint = Color(0xFFE91E63))
@@ -228,6 +242,12 @@ fun MainScreen(
                         label = { Text("Mapa") }
                     )
                     NavigationBarItem(
+                        selected = currentTab == 1,
+                        onClick = { currentTab = 1 },
+                        icon = { Icon(Icons.Default.History, stringResource(R.string.archive_title)) },
+                        label = { Text(stringResource(R.string.archive_title)) }
+                    )
+                    NavigationBarItem(
                         selected = false,
                         onClick = { uriHandler.openUri(podcastRepository.playlistUrl) },
                         icon = { Icon(Icons.Default.Podcasts, "Podcast") },
@@ -244,10 +264,50 @@ fun MainScreen(
             }
         ) { padding ->
             Box(modifier = Modifier.padding(padding)) {
-                if (currentTab == 0) {
-                    MapContent(cameraPositionState, isLocationPermissionGranted, pois, visitedPois, parkingPois, mockLocation, { selectedPoi = it }, { uriHandler.openUri(it) })
-                } else {
-                    PodcastScreen(podcastRepository)
+                Column(modifier = Modifier.fillMaxSize()) {
+                    Box(modifier = Modifier.weight(1f)) {
+                        when (currentTab) {
+                            0 -> MapContent(cameraPositionState, isLocationPermissionGranted, pois, visitedPois, parkingPois, mockLocation, { selectedPoi = it }, { uriHandler.openUri(it) })
+                            1 -> ArchiveScreen(archiveRepository, poiRepository, { fullScreenImage = it })
+                        }
+                    }
+                    
+                    // Mini Player Bar
+                    if (selectedPoi == null && currentlyPlayingPoi != null && (isPlaying || audioPlayerManager.player?.playbackState != androidx.media3.common.Player.STATE_IDLE)) {
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { selectedPoi = currentlyPlayingPoi },
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            tonalElevation = 8.dp
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(8.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(Icons.Default.MusicNote, null, tint = MaterialTheme.colorScheme.primary)
+                                Spacer(Modifier.width(12.dp))
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Text(
+                                        text = currentlyPlayingPoi.title,
+                                        style = MaterialTheme.typography.labelLarge,
+                                        maxLines = 1
+                                    )
+                                    if (isBuffering) {
+                                        Text(stringResource(R.string.audio_loading), style = MaterialTheme.typography.bodySmall)
+                                    }
+                                }
+                                IconButton(onClick = { audioPlayerManager.togglePlayPause() }) {
+                                    Icon(if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow, null)
+                                }
+                                IconButton(onClick = { 
+                                    audioPlayerManager.stop() 
+                                }) {
+                                    Icon(Icons.Default.Close, null)
+                                }
+                            }
+                        }
+                    }
                 }
 
                 if (showPinDialog) {
@@ -279,18 +339,38 @@ fun MainScreen(
                             selectedPoi = null
                             audioPlayerManager.stop()
                         },
-                        onImageClick = { fullScreenImageUri = it },
+                        onImageClick = { fullScreenImage = it },
                         onNavigate = { uriHandler.openUri(it) }
                     )
                 }
 
-                fullScreenImageUri?.let { uri ->
+                fullScreenImage?.let { poiImage ->
+                    val uri = poiRepository.getImageUri(poiImage.fileName)
                     Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.scrim.copy(alpha = 0.9f))) {
-                        ZoomableImage(model = uri, contentDescription = null, modifier = Modifier.fillMaxSize())
+                        Column(modifier = Modifier.fillMaxSize()) {
+                            Box(modifier = Modifier.weight(1f)) {
+                                ZoomableImage(model = uri, contentDescription = null, modifier = Modifier.fillMaxSize())
+                            }
+                            
+                            poiImage.description?.let { desc ->
+                                Surface(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    color = Color.Black.copy(alpha = 0.6f)
+                                ) {
+                                    Text(
+                                        text = desc,
+                                        color = Color.White,
+                                        modifier = Modifier.padding(16.dp),
+                                        style = MaterialTheme.typography.bodyMedium
+                                    )
+                                }
+                            }
+                        }
+                        
                         IconButton(
-                        onClick = { fullScreenImageUri = null },
-                        modifier = Modifier.align(Alignment.TopEnd).padding(16.dp).background(MaterialTheme.colorScheme.surface.copy(alpha = 0.5f), RoundedCornerShape(24.dp))
-                    ) { Icon(Icons.Default.Close, stringResource(R.string.close)) }
+                            onClick = { fullScreenImage = null },
+                            modifier = Modifier.align(Alignment.TopEnd).padding(16.dp).background(MaterialTheme.colorScheme.surface.copy(alpha = 0.5f), RoundedCornerShape(24.dp))
+                        ) { Icon(Icons.Default.Close, stringResource(R.string.close)) }
                     }
                 }
 
@@ -384,9 +464,19 @@ fun PoiDetailCard(
     activeMediaId: String?,
     currentLanguage: String,
     onClose: () -> Unit,
-    onImageClick: (String) -> Unit,
+    onImageClick: (PoiImage) -> Unit,
     onNavigate: (String) -> Unit
 ) {
+    val allImages = remember(poi) {
+        val list = mutableListOf<PoiImage>()
+        if (poi.gallery.isNotEmpty()) {
+            list.addAll(poi.gallery)
+        } else {
+            poi.images.forEach { list.add(PoiImage(fileName = it)) }
+        }
+        list
+    }
+
     Card(modifier = Modifier.fillMaxWidth().padding(16.dp), elevation = CardDefaults.cardElevation(8.dp)) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(
@@ -403,12 +493,37 @@ fun PoiDetailCard(
                     Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close))
                 }
             }
-            if (poi.images.isNotEmpty()) {
+            if (allImages.isNotEmpty()) {
                 Spacer(Modifier.height(8.dp))
                 LazyRow(contentPadding = PaddingValues(end = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    items(poi.images) { imageName ->
-                        val uri = poiRepository.getImageUri(imageName)
-                        AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(120.dp).clip(RoundedCornerShape(8.dp)).clickable { onImageClick(uri) }, contentScale = ContentScale.Crop)
+                    items(allImages) { img ->
+                        val uri = poiRepository.getImageUri(img.fileName)
+                        var isLoadingImage by remember { mutableStateOf(true) }
+                        
+                        Box(
+                            modifier = Modifier
+                                .size(120.dp)
+                                .clip(RoundedCornerShape(8.dp)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            if (isLoadingImage) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(24.dp),
+                                    strokeWidth = 2.dp,
+                                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
+                                )
+                            }
+                            AsyncImage(
+                                model = uri,
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .clickable { onImageClick(img) },
+                                contentScale = ContentScale.Crop,
+                                onSuccess = { isLoadingImage = false },
+                                onError = { isLoadingImage = false }
+                            )
+                        }
                     }
                 }
             }
@@ -429,9 +544,9 @@ fun PoiDetailCard(
             Column(Modifier.fillMaxWidth()) {
                 if (totalTracks > 1) {
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                        IconButton(onClick = { audioPlayerManager.player.seekToPreviousMediaItem() }) { Icon(Icons.Default.SkipPrevious, "Poprzedni") }
+                        IconButton(onClick = { audioPlayerManager.player?.seekToPreviousMediaItem() }) { Icon(Icons.Default.SkipPrevious, "Poprzedni") }
                         Text(text = stringResource(R.string.audio_recording_count, currentTrackIndex + 1, totalTracks), style = MaterialTheme.typography.bodySmall)
-                        IconButton(onClick = { audioPlayerManager.player.seekToNextMediaItem() }) { Icon(Icons.Default.SkipNext, "Następny") }
+                        IconButton(onClick = { audioPlayerManager.player?.seekToNextMediaItem() }) { Icon(Icons.Default.SkipNext, "Następny") }
                     }
                 }
                 
@@ -446,7 +561,8 @@ fun PoiDetailCard(
 
                 Slider(
                     value = if (duration > 0) (currentPosition.toFloat() / duration).coerceIn(0f, 1f) else 0f, 
-                    onValueChange = { audioPlayerManager.player.seekTo((it * duration).toLong()) }
+                    onValueChange = { audioPlayerManager.player?.seekTo((it * duration).toLong()) },
+                    enabled = audioPlayerManager.player != null
                 )
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text(formatTime(currentPosition), style = MaterialTheme.typography.bodySmall)

@@ -9,5 +9,6 @@ data class PoiItem(
     val radiusMeters: Float = 0f,
     val audioFileName: String? = null,
     val audioFiles: List<String> = emptyList(),
-    val images: List<String> = emptyList()
+    val images: List<String> = emptyList(),
+    val gallery: List<PoiImage> = emptyList()
 )

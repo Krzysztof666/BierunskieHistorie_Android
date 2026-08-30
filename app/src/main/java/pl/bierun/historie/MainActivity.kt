@@ -16,6 +16,7 @@ import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import pl.bierun.historie.data.ArchiveRepository
 import pl.bierun.historie.data.PodcastRepository
 import pl.bierun.historie.data.UserProgressRepository
 import pl.bierun.historie.ui.MainScreen
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var audioPlayerManager: AudioPlayerManager
     private lateinit var userProgressRepository: UserProgressRepository
     private lateinit var podcastRepository: PodcastRepository
+    private lateinit var archiveRepository: ArchiveRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         audioPlayerManager = AudioPlayerManager(this, poiRepository)
         userProgressRepository = UserProgressRepository(this)
         podcastRepository = PodcastRepository()
+        archiveRepository = ArchiveRepository(this, languageManager)
 
         setContent {
             var isLoading by remember { mutableStateOf(true) }
@@ -88,6 +91,7 @@ class MainActivity : AppCompatActivity() {
                             audioPlayerManager = audioPlayerManager,
                             podcastRepository = podcastRepository,
                             userProgressRepository = userProgressRepository,
+                            archiveRepository = archiveRepository,
                             isLocationPermissionGranted = locationPermissionGranted
                         )
                     }

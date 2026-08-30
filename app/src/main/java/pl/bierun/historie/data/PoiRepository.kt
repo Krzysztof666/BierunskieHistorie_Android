@@ -39,6 +39,7 @@ class PoiRepository(private val context: Context, val languageManager: AppLangua
     }
 
     private val REMOTE_AUDIO_BASE_URL = "https://pyblog.cba.pl/app/bierunguide/audio/"
+    private val REMOTE_IMAGE_BASE_URL = "https://pyblog.cba.pl/app/bierunguide/images/"
 
     fun getAudioUri(audioFileName: String): Uri {
         val currentLang = languageManager.getCurrentLanguage()
@@ -47,6 +48,6 @@ class PoiRepository(private val context: Context, val languageManager: AppLangua
     }
 
     fun getImageUri(imageFileName: String): String {
-        return "file:///android_asset/images/$imageFileName"
+        return "$REMOTE_IMAGE_BASE_URL$imageFileName"
     }
 }

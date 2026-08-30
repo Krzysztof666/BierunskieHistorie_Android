@@ -1,19 +1,22 @@
 package pl.bierun.historie.media
 
+import android.content.ComponentName
 import android.content.Context
 import androidx.annotation.OptIn
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.media3.common.MediaItem
-import androidx.media3.common.util.UnstableApi
-import androidx.media3.exoplayer.ExoPlayer
-import pl.bierun.historie.data.PoiRepository
-import pl.bierun.historie.model.PoiItem
-
 import androidx.media3.common.Player
-import androidx.media3.datasource.DefaultDataSource
-import androidx.media3.datasource.cache.CacheDataSource
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.cache.LeastRecentlyUsedCacheEvictor
 import androidx.media3.datasource.cache.SimpleCache
-import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
+import androidx.media3.session.MediaController
+import androidx.media3.session.SessionToken
+import com.google.common.util.concurrent.ListenableFuture
+import com.google.common.util.concurrent.MoreExecutors
+import pl.bierun.historie.data.PoiRepository
+import pl.bierun.historie.model.PoiItem
 import java.io.File
 
 @OptIn(UnstableApi::class)
@@ -34,16 +37,22 @@ class AudioPlayerManager(context: Context, private val poiRepository: PoiReposit
         }
     }
 
-    private val dataSourceFactory = CacheDataSource.Factory()
-        .setCache(getCache(context))
-        .setUpstreamDataSourceFactory(DefaultDataSource.Factory(context))
-        .setFlags(CacheDataSource.FLAG_IGNORE_CACHE_ON_ERROR)
+    var player by mutableStateOf<Player?>(null)
+        private set
 
-    val player: ExoPlayer = ExoPlayer.Builder(context)
-        .setMediaSourceFactory(DefaultMediaSourceFactory(dataSourceFactory))
-        .build()
+    private var controllerFuture: ListenableFuture<MediaController>? = null
+
+    init {
+        val sessionToken = SessionToken(context, ComponentName(context, PlaybackService::class.java))
+        controllerFuture = MediaController.Builder(context, sessionToken).buildAsync()
+        controllerFuture?.addListener({
+            player = controllerFuture?.get()
+        }, MoreExecutors.directExecutor())
+    }
 
     fun playPoiAudio(poi: PoiItem) {
+        val currentPlayer = player ?: return
+        
         val files = try {
             if (poi.audioFiles.isNotEmpty()) poi.audioFiles else listOfNotNull(poi.audioFileName)
         } catch (e: Exception) {
@@ -61,29 +70,34 @@ class AudioPlayerManager(context: Context, private val poiRepository: PoiReposit
                 .build()
         }
         
-        player.stop() 
-        player.clearMediaItems()
-        player.setMediaItems(mediaItems)
-        player.prepare()
-        player.play()
+        currentPlayer.stop() 
+        currentPlayer.clearMediaItems()
+        currentPlayer.setMediaItems(mediaItems)
+        currentPlayer.prepare()
+        currentPlayer.play()
     }
 
     fun togglePlayPause() {
-        if (player.playbackState == Player.STATE_IDLE) return
+        val currentPlayer = player ?: return
+        if (currentPlayer.playbackState == Player.STATE_IDLE) return
         
-        if (player.isPlaying) {
-            player.pause()
+        if (currentPlayer.isPlaying) {
+            currentPlayer.pause()
         } else {
-            if (player.playbackState == Player.STATE_ENDED) {
-                player.seekTo(0, 0L)
+            if (currentPlayer.playbackState == Player.STATE_ENDED) {
+                currentPlayer.seekTo(0, 0L)
             }
-            player.play()
+            currentPlayer.play()
         }
     }
 
     fun stop() {
-        player.stop()
+        player?.stop()
     }
 
-    fun release() { player.release() }
+    fun release() {
+        controllerFuture?.let {
+            MediaController.releaseFuture(it)
+        }
+    }
 }

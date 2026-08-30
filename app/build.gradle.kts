@@ -63,6 +63,7 @@ dependencies {
     // Media3 / ExoPlayer (.mp3 i .mp4)
     implementation("androidx.media3:media3-exoplayer:1.3.1")
     implementation("androidx.media3:media3-ui:1.3.1")
+    implementation("androidx.media3:media3-session:1.3.1")
 
     // Coil (wczytywanie obrazów i miniatur)
     implementation("io.coil-kt:coil-compose:2.6.0")
