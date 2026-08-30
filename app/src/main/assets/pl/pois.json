@@ -1,0 +1,123 @@
+[
+  {
+    "id": "rynek",
+    "title": "Rynek w Bieruniu",
+    "description": "Zabytkowy układ urbanistyczny z pomnikiem Powstańców Śląskich i Utopcem.",
+    "latitude": 50.09332,
+    "longitude": 19.09171,
+    "radiusMeters": 50.0,
+    "audioFileName": "rynek.mp3",
+    "images": ["herb-bierunia.jpg", "rynek_2.jpg", "rynek_3.jpg", "rynek_4.jpg", "rynek_5.jpg", "rynek_6.jpg", "rynek_7.jpg", "rynek_8.jpg", "rynek_9.jpg", "rynek_a.jpg", "rynek_b.jpg", "rynek_c.jpg"]
+  },
+  {
+    "id": "kopiec",
+    "title": "Bieruński Kopiec",
+    "description": "Średniowieczny gródek stożkowy z kapliczką św. Jana Nepomucena.",
+    "latitude": 50.09030,
+    "longitude": 19.09180,
+    "radiusMeters": 20.0,
+    "audioFileName": "kopiec.mp3",
+    "images": ["kopiec_1.jpg"]
+  },
+  {
+    "id": "pomnik_walentego",
+    "title": "Pomnik św. Walentego",
+    "description": "Pomnik św. Walentego zbudowany w roku 2008.",
+    "latitude": 50.08976,
+    "longitude": 19.09268,
+    "radiusMeters": 10.0,
+    "audioFiles": ["pomnik_walentego.mp3", "melody.mp4"],
+    "images": ["pomnik_walentego_1.jpg"]
+  },
+  {
+    "id": "walencinek",
+    "title": "Sanktuarium św. Walentego",
+    "description": "Drewniany kościółek wzmiankowany już w 1628r.",
+    "latitude": 50.08962,
+    "longitude": 19.09338,
+    "radiusMeters": 30.0,
+    "audioFiles": ["walencinek_pl_1.mp3", "walencinek_symbole.mp3", "walencinek_wiersz.mp3"],
+    "images": ["walentego_1.jpg", "walentego_2.jpg", "walentego_3.jpg", "walentego_4.jpg", "walentego_5.jpg", "walentego_6.jpg", "walentego_7.jpg", "walentego_8.jpg", "walentego_9.jpg", "walentego_10.jpg", "walentego_11.jpg", "walentego_12.jpg", "walentego_13.jpg", "walentego_a.jpg", "walentego_b.jpg", "walentego_c.jpg"]
+  },
+
+  {
+    "id": "grobla_staw",
+    "title": "Grobla i staw",
+    "description": "Grobla i Wielki Staw Bieruński.",
+    "latitude": 50.087854,
+    "longitude": 19.098303,
+    "radiusMeters": 30.0,
+    "audioFileName": "staw_1.mp3",
+    "images": ["staw_1.jpg"]
+  },
+  {
+    "id": "kladka",
+    "title": "Kładka nad ulicą Chemików",
+    "description": "Kładka dla pieszych łącząca dwie części grobli.",
+    "latitude": 50.091071,
+    "longitude": 19.097473,
+    "radiusMeters": 20.0,
+    "audioFileName": "kladka.mp3",
+    "images": ["kladka_1.jpg", "kladka_a.jpg"]
+  },
+  {
+    "id": "bartlomiej",
+    "title": "Kościół św. Bartłomieja",
+    "description": "Kościół parafialny pw. św. Bartłomieja Apostoła.",
+    "latitude": 50.092601,
+    "longitude": 19.092394,
+    "radiusMeters": 20.0,
+    "audioFiles": ["bartlomiej_1.mp3", "bartlomiej_2.mp3", "ballada.mp3"],
+    "images": ["bartlomiej_1.jpg", "bartlomiej_2.jpg", "bartlomiej_3.jpg"]
+  },
+  {
+    "id": "nspj",
+    "title": "Kościół NSPJ w Bieruniu",
+    "description": "100-lecie Parafii NSPJ w Bieruniu Nowym.",
+    "latitude": 50.073675,
+    "longitude": 19.180124,
+    "radiusMeters": 30.0,
+    "audioFiles": ["nspj_1.mp3", "nspj_2.mp3", "nspj_3.mp3", "nspj_4.mp4"],
+    "images": ["nspj_1.jpg", "nspj_2.jpg", "nspj_3.jpg", "nspj_4.jpg", "nspj_a.jpg", "nspj_b.jpg", "nspj_c.jpg"]
+  },
+  {
+    "id": "ospbn",
+    "title": "OSP Bieruń Nowy",
+    "description": "100-lecie OSP w Bieruniu Nowym.",
+    "latitude": 50.073708,
+    "longitude": 19.182992,
+    "radiusMeters": 30.0,
+    "audioFileName": "ospbn_1.mp3",
+    "images": ["ospbn_a.jpg"]
+  },
+  {
+    "id": "skwer",
+    "title": "Skwer Miast Partnerskich",
+    "description": "Skwer Miast Partnerskich w Bieruniu Nowym.",
+    "latitude": 50.074183,
+    "longitude": 19.182466,
+    "radiusMeters": 25.0,
+    "audioFileName": "skwer_pl.mp4",
+    "images": ["herb-bierunia.jpg", "gundelfingen.jpg", "meung.jpg", "moravsky.jpg", "ostroh.jpg"]
+  },
+  {
+    "id": "kop_piast",
+    "title": "Kopalnia PIAST",
+    "description": "Bieruńskie Westerplatte. Najdłuższy strajk podziemny po wprowadzeniu stanu wojennego w Polsce.",
+    "latitude": 50.082029,
+    "longitude": 19.16266,
+    "radiusMeters": 100.0,
+    "audioFiles": ["kop_piast_strajk.mp3", "ostatnia_szychta.mp4"],
+    "images": ["kop_piast_1.jpg","kop_piast_2.jpg","kop_piast_3.jpg", "kop_piast_4.jpg", "strajk_a.jpg", "strajk_b.jpg"]
+  },
+  {
+    "id": "kop_piast_orkiestra",
+    "title": "50 lat Orkiestry KWK PIAST",
+    "description": "W roku 2025 Orkiestra Dęta KWK PIAST obchodziła 50-lecie działalności.",
+    "latitude": 50.082030,
+    "longitude": 19.162667,
+    "radiusMeters": 100.0,
+    "audioFileName": "kop_piast_orkiestra.mp3",
+    "images": ["kop_piast_orkiestra_1.jpg", "kop_piast_orkiestra_2.jpg"]
+  }
+]

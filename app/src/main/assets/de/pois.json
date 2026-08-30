@@ -1,0 +1,122 @@
+[
+  {
+    "id": "rynek",
+    "title": "Bieruń Ring (Marktplatz)",
+    "description": "Historischer Marktplatz mit Denkmal der Schlesischen Aufständischen.",
+    "latitude": 50.09332,
+    "longitude": 19.09171,
+    "radiusMeters": 50.0,
+    "audioFiles": ["rynek_1_de.mp3", "rynek_2_de.mp3"],
+    "images": ["herb-bierunia.jpg", "rynek_2.jpg", "rynek_3.jpg", "rynek_4.jpg", "rynek_5.jpg", "rynek_6.jpg", "rynek_7.jpg", "rynek_8.jpg", "rynek_9.jpg", "rynek_a.jpg", "rynek_b.jpg", "rynek_c.jpg"]
+  },
+  {
+    "id": "kopiec",
+    "title": "Bieruner Kopiec",
+    "description": "Eine mittelalterliche, kegelförmige Burg mit einer Kapelle des Heiligen Johannes von Nepomuk",
+    "latitude": 50.09030,
+    "longitude": 19.09180,
+    "radiusMeters": 20.0,
+    "audioFiles": ["kopiec_1_de.mp3", "kopiec_2_de.mp3"],
+    "images": ["kopiec_1.jpg"]
+  },
+  {
+    "id": "pomnik_walentego",
+    "title": "St. Valentin Denkmal",
+    "description": "Denkmal des heiligen Valentin, erbaut im Jahr 2008.",
+    "latitude": 50.08976,
+    "longitude": 19.09268,
+    "radiusMeters": 10.0,
+    "audioFiles": ["pomnik_walentego_de.mp3", "vdm.mp4"],
+    "images": ["pomnik_walentego_1.jpg"]
+  },
+  {
+    "id": "walencinek",
+    "title": "St. Valentin Sanktuarium",
+    "description": "Historische Holzschrotholzkirche aus dem Jahr 1628.",
+    "latitude": 50.08962,
+    "longitude": 19.09338,
+    "radiusMeters": 30.0,
+    "audioFiles": ["walencinek_1_de.mp3", "walencinek_2_de.mp3", "walencinek_3_de.mp3"],
+    "images": ["walentego_1.jpg", "walentego_2.jpg", "walentego_10.jpg", "walentego_11.jpg", "walentego_12.jpg", "walentego_13.jpg", "walentego_a.jpg", "walentego_b.jpg", "walentego_c.jpg"]
+  },
+  {
+    "id": "grobla_staw",
+    "title": "Damm und Teich",
+    "description": "Der Damm und der Große Bieruner Teich.",
+    "latitude": 50.087854,
+    "longitude": 19.098303,
+    "radiusMeters": 30.0,
+    "audioFileName": "staw_1_de.mp3",
+    "images": ["staw_1.jpg"]
+  },
+  {
+    "id": "kladka",
+    "title": "Steg über die Chemików-Str.",
+    "description": "Fußgängerbrücke, die die Siedlung z mit Erholungsgebieten verbindet.",
+    "latitude": 50.091071,
+    "longitude": 19.097473,
+    "radiusMeters": 20.0,
+    "audioFileName": "kladka_de.mp3",
+    "images": ["kladka_1.jpg", "kladka_a.jpg"]
+  },
+  {
+    "id": "bartlomiej",
+    "title": "Kirche St. Bartholomäus",
+    "description": "Pfarrkirche St. Bartholomäus.",
+    "latitude": 50.092601,
+    "longitude": 19.092394,
+    "radiusMeters": 20.0,
+    "audioFiles": ["bartlomiej_1_de.mp3", "bartlomiej_2_de.mp3"],
+    "images": ["bartlomiej_1.jpg", "bartlomiej_2.jpg", "bartlomiej_3.jpg"]
+  },
+ {
+    "id": "nspj",
+    "title": "Herz-Jesu-Kirche in Bierun",
+    "description": "100-jähriges Jubiläum der katholischen Pfarrei in Bieruń Nowy.",
+    "latitude": 50.073675,
+    "longitude": 19.180124,
+    "radiusMeters": 30.0,
+    "audioFiles": ["nspj_1_de.mp3", "nspj_2.mp3", "nspj_4.mp4"],
+    "images": ["nspj_1.jpg", "nspj_2.jpg", "nspj_a.jpg", "nspj_b.jpg", "nspj_c.jpg"]
+  },
+  {
+    "id": "ospbn",
+    "title": "Freiwillige Feuerwehr",
+    "description": "100-jähriges Jubiläum der Freiwilligen Feuerwehr in Bieruń Nowy.",
+    "latitude": 50.073708,
+    "longitude": 19.182992,
+    "radiusMeters": 30.0,
+    "audioFileName": "ospbn_de.mp3",
+    "images": ["ospbn_a.jpg"]
+  },
+  {
+    "id": "skwer",
+    "title": "Twin Cities Squer",
+    "description": "Twin Cities Squer in Bieruniu Nowym.",
+    "latitude": 50.074183,
+    "longitude": 19.182466,
+    "radiusMeters": 25.0,
+    "audioFileName": "skwer_de.mp4",
+    "images": ["herb-bierunia.jpg", "gundelfingen.jpg", "meung.jpg", "moravsky.jpg", "ostroh.jpg"]
+  },
+  {
+    "id": "kop_piast",
+    "title": "Bergwerk PIAST",
+    "description": "Bieruner Westerplatte. Der längste unterirdische Streik nach der Verhängung des Kriegsrechts.",
+    "latitude": 50.082029,
+    "longitude": 19.16266,
+    "radiusMeters": 100.0,
+    "audioFileName": "kop_piast_strajk_de.mp3",
+    "images": ["kop_piast_1.jpg","kop_piast_2.jpg","kop_piast_3.jpg", "kop_piast_4.jpg", "strajk_a.jpg", "strajk_b.jpg"]
+  },
+  {
+    "id": "kop_piast_orkiestra",
+    "title": "Bergkapelle KWK PIAST",
+    "description": "Im Jahr 2025 feierte die Bergkapelle KWK PIAST ihr 50-jähriges Bestehen.",
+    "latitude": 50.082030,
+    "longitude": 19.162667,
+    "radiusMeters": 100.0,
+    "audioFiles": ["orkiestra_intro.mp4", "kop_piast_orkiestra_de.mp3"],
+    "images": ["kop_piast_orkiestra_1.jpg"]
+  }
+]

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Bieruń Guide by KAD</string>
+    <string name="start_walk">Rozpocznij spacer</string>
+    <string name="close">X</string>
+    <string name="navigate_walking">Nawiguj (pieszo / Live View)</string>
+    <string name="audio_listen">Słuchaj</string>
+    <string name="audio_pause">Pauza</string>
+    <string name="audio_loading">Wczytywanie…</string>
+    <string name="audio_recording_count">Nagranie %1$d z %2$d</string>
+    <string name="poi_list_title">Miejsca w Bieruniu</string>
+    <string name="parking_navigation_hint">Nawiguj do parkingu</string>
+    <string name="visited_count">Odwiedzono: %1$d/%2$d</string>
+    <string name="privacy_policy">Prywatność</string>
+    <string name="privacy_policy_url">https://pyblog.cba.pl/app/bierunguide/polityka_pl.html</string>
+</resources>

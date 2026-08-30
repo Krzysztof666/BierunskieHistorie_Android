@@ -1,0 +1,124 @@
+[
+  {
+    "id": "rynek",
+    "title": "Bieruń Market Square",
+    "description": "Historic town square with the Silesian Insurgents monument.",
+    "latitude": 50.09332,
+    "longitude": 19.09171,
+    "radiusMeters": 50.0,
+    "audioFiles": ["rynek_1_en.mp3", "rynek_2_en.mp3"],
+    "images": ["herb-bierunia.jpg", "rynek_2.jpg", "rynek_3.jpg", "rynek_4.jpg", "rynek_5.jpg", "rynek_6.jpg", "rynek_7.jpg", "rynek_8.jpg", "rynek_9.jpg", "rynek_a.jpg", "rynek_b.jpg", "rynek_c.jpg"]
+  },
+  {
+    "id": "kopiec",
+    "title": "Bieruński Kopiec",
+    "description": "A medieval conical castle with a chapel of St. John of Nepomuk.",
+    "latitude": 50.09030,
+    "longitude": 19.09180,
+    "radiusMeters": 20.0,
+    "audioFileName": "kopiec_1_en.mp3",
+    "images": ["kopiec_1.jpg"]
+  },
+  {
+    "id": "pomnik_walentego",
+    "title": "St. Valentine Monument",
+    "description": "Monument of St. Valentine built in 2008.",
+    "latitude": 50.08976,
+    "longitude": 19.09268,
+    "radiusMeters": 10.0,
+    "audioFiles": ["pomnik_walentego_en.mp3", "vdm.mp4"],
+    "images": ["pomnik_walentego_1.jpg"]
+  },
+
+  {
+    "id": "walencinek",
+    "title": "Sanctuary of St. Valentine",
+    "description": "Historic wooden pilgrimage church built in 1628.",
+    "latitude": 50.08962,
+    "longitude": 19.09338,
+    "radiusMeters": 30.0,
+    "audioFiles": ["walencinek_1_en.mp3", "walencinek_2_en.mp3", "walencinek_3_en.mp3"],
+    "images": ["walentego_1.jpg", "walentego_2.jpg", "walentego_10.jpg", "walentego_11.jpg", "walentego_12.jpg", "walentego_13.jpg", "walentego_a.jpg", "walentego_b.jpg", "walentego_c.jpg"]
+  },
+
+  {
+    "id": "grobla_staw",
+    "title": "Embankment and Pond",
+    "description": "The Embankment and the Great Bieruń Pond.",
+    "latitude": 50.087854,
+    "longitude": 19.098303,
+    "radiusMeters": 30.0,
+    "audioFileName": "staw_1_en.mp3",
+    "images": ["staw_1.jpg"]
+  },
+  {
+    "id": "kladka",
+    "title": "Footbridge over Chemików St.",
+    "description": "Pedestrian bridge connecting the estate with recreational areas.",
+    "latitude": 50.091071,
+    "longitude": 19.097473,
+    "radiusMeters": 20.0,
+    "audioFileName": "kladka_en.mp3",
+    "images": ["kladka_1.jpg", "kladka_a.jpg"]
+  },
+  {
+    "id": "bartlomiej",
+    "title": "Church of St. Bartholomew",
+    "description": "Parish Church of St. Bartholomew.",
+    "latitude": 50.092601,
+    "longitude": 19.092394,
+    "radiusMeters": 20.0,
+    "audioFiles": ["bartlomiej_1_en.mp3", "bartlomiej_2_en.mp3"],
+    "images": ["bartlomiej_1.jpg", "bartlomiej_2.jpg", "bartlomiej_3.jpg"]
+  },
+  {
+    "id": "nspj",
+    "title": "The Church in New Bieruń",
+    "description": "100th anniversary of the Sacred Heart Parish in New Bieruń.",
+    "latitude": 50.073675,
+    "longitude": 19.180124,
+    "radiusMeters": 30.0,
+    "audioFiles": ["nspj_1_en.mp3", "nspj_2.mp3", "nspj_3.mp3", "nspj_4.mp4"],
+    "images": ["nspj_1.jpg", "nspj_2.jpg", "nspj_a.jpg", "nspj_b.jpg", "nspj_c.jpg"]
+  },
+  {
+    "id": "ospbn",
+    "title": "Volunteer Fire Department",
+    "description": "100th anniversary of the Volunteer Fire Department in Bieruń Nowy.",
+    "latitude": 50.073708,
+    "longitude": 19.182992,
+    "radiusMeters": 30.0,
+    "audioFileName": "ospbn_en.mp3",
+    "images": ["ospbn_a.jpg"]
+  },
+  {
+    "id": "skwer",
+    "title": "Twin Cities Square",
+    "description": "Twin Cities Square in Bieruniu Nowym.",
+    "latitude": 50.074183,
+    "longitude": 19.182466,
+    "radiusMeters": 25.0,
+    "audioFiles": ["skwer_fr.mp4", "skwer_ua.mp4"],
+    "images": ["herb-bierunia.jpg", "gundelfingen.jpg", "meung.jpg", "moravsky.jpg", "ostroh.jpg"]
+  },
+  {
+    "id": "kop_piast",
+    "title": "PIAST Mine strike",
+    "description": "Bieruń's Westerplatte. The longest underground strike after the martial law.",
+    "latitude": 50.082029,
+    "longitude": 19.16266,
+    "radiusMeters": 100.0,
+    "audioFileName": "kop_piast_strajk_en.mp3",
+    "images": ["kop_piast_1.jpg","kop_piast_2.jpg","kop_piast_3.jpg", "kop_piast_4.jpg", "strajk_a.jpg", "strajk_b.jpg"]
+  },
+  {
+    "id": "kop_piast_orkiestra",
+    "title": "PIAST Mine Orchestra",
+    "description": "In 2025, the KWK PIAST Brass Band celebrated its 50th anniversary.",
+    "latitude": 50.082030,
+    "longitude": 19.162667,
+    "radiusMeters": 100.0,
+    "audioFiles": ["orkiestra_intro.mp4", "kop_piast_orkiestra_en.mp3"],
+    "images": ["kop_piast_orkiestra_1.jpg", "kop_piast_orkiestra_2.jpg"]
+  }
+]

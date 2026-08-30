@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Bieruń Guide by KAD</string>
+    <string name="start_walk">Start walk</string>
+    <string name="close">X</string>
+    <string name="navigate_walking">Navigate (walk / Live View)</string>
+    <string name="audio_listen">Listen</string>
+    <string name="audio_pause">Pause</string>
+    <string name="audio_loading">Loading…</string>
+    <string name="audio_recording_count">Recording %1$d of %2$d</string>
+    <string name="poi_list_title">Places in Bieruń</string>
+    <string name="parking_navigation_hint">Navigate to parking</string>
+    <string name="visited_count">Visited: %1$d/%2$d</string>
+    <string name="privacy_policy">Privacy</string>
+    <string name="privacy_policy_url">https://pyblog.cba.pl/app/bierunguide/polityka_en.html</string>
+</resources>
