@@ -13,8 +13,8 @@
     "id": "kopiec",
     "title": "Bieruński Kopiec",
     "description": "A medieval conical castle with a chapel of St. John of Nepomuk.",
-    "latitude": 50.09030,
-    "longitude": 19.09180,
+    "latitude": 50.090244,
+    "longitude": 19.088995,
     "radiusMeters": 20.0,
     "audioFileName": "kopiec_1_en.mp3",
     "images": ["kopiec_1.jpg"]
