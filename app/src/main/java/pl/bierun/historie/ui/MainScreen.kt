@@ -196,7 +196,7 @@ fun MainScreen(
                                     }
                                 )
                                 Text(
-                                    text = stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
+                                    text = "v1.2 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.secondary
                                 )
@@ -204,6 +204,11 @@ fun MainScreen(
                         },
                         actions = {
                             val infoUrl = stringResource(R.string.info_url)
+                            val websiteUrl = stringResource(R.string.website_url)
+                            
+                            IconButton(onClick = { uriHandler.openUri(websiteUrl) }) {
+                                Icon(Icons.Default.Public, contentDescription = stringResource(R.string.website_label))
+                            }
                             IconButton(onClick = { uriHandler.openUri(infoUrl) }) {
                                 Icon(Icons.Default.Info, contentDescription = stringResource(R.string.info_label))
                             }

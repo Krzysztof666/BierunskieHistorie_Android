@@ -1,38 +1,30 @@
 HISTORIA ZMIAN - Bieruń Guide by KAD
 
+v1.2 (31.08.2026)
+-----------------
+* FUNKCJONALNOŚĆ:
+  - Pełna integracja ze stroną internetową (przycisk "Nowości" w aplikacji).
+  - Wyświetlanie numeru wersji w nagłówku aplikacji.
+  - Optymalizacja ścieżek dostępu do plików na serwerze.
+  - Dodanie linku bezpośredniego pod kodem QR na stronie domowej.
+
 v1.1 (30.08.2026)
 -----------------
 * FUNKCJONALNOŚĆ:
-  - Wprowadzenie niezależnej sekcji "Archiwum" z galerią historycznych zdjęć i opisami.
-  - Dodanie paska "Mini Player" pozwalającego na szybki powrót do karty miejsca podczas słuchania.
   - Dodanie obsługi odtwarzania audio w tle (Foreground Service + MediaSession).
   - Integracja ze sterowaniem systemowym (powiadomienie i ekran blokady).
-  - Funkcja automatycznego powrotu do aplikacji po kliknięciu w powiadomienie audio.
+  - Wprowadzenie paska "Mini Player" pozwalającego na szybki powrót do karty miejsca podczas słuchania.
+  - Wprowadzenie niezależnej sekcji "Archiwum" z galerią historycznych zdjęć i opisami.
   - Drastyczne odchudzenie aplikacji (przejście na zewnętrzne serwery audio i zdjęć).
-  - Dodanie systemu buforowania nagrań (100MB Cache) - raz odsłuchane audio działa offline.
-  - Automatyczne pobieranie zdjęć z serwera (oszczędność miejsca w APK).
-  - Wprowadzenie paska wczytywania (buforowania) plików audio oraz stanu ładowania przycisku "Słuchaj".
-  - Dodanie wskaźników ładowania (CircularProgressIndicator) dla zdjęć pobieranych z serwera.
-  - Poprawa mechanizmu zmiany języka - teraz napisy i audio zmieniają się natychmiastowo bez restartu.
-  - Dodanie przycisku "Info" na górnym pasku prowadzącego do instrukcji obsługi online.
-  - Zastąpienie tekstów "Zamknij/Close" uniwersalnym znakiem "X" (lepsza czytelność przy długich tytułach).
-  - Naprawa wyświetlania mapy w wersji Release (podpisanej).
-  - Dodanie linków do Polityki Prywatności w trzech językach w dolnym pasku.
-* NOWE POI:
-  - Skwer i tablice pamiątkowe.
-  - OSP Bieruń Nowy.
+  - Dodanie systemu buforowania nagrań (100MB Cache).
+  - Wprowadzenie wskaźników ładowania multimediów.
+  - Poprawa mechanizmu zmiany języka (natychmiastowe odświeżenie).
+  - Zastąpienie tekstów "Zamknij/Close" uniwersalnym znakiem "X".
 
 v1.0 (26.08.2026 - 29.08.2026)
 ------------------------------
 * FUNKCJONALNOŚĆ:
   - Pierwsza stabilna wersja z mapą i systemem POI.
-  - Implementacja odtwarzacza audio obsługującego listy plików (playlisty).
-  - Automatyczne przechodzenie do kolejnych części opowieści.
-  - System odwiedzin oparty na geofencingu (radiusMeters).
-  - Pełne wsparcie dla 3 języków: Polski, Angielski, Niemiecki.
-  - Zastąpienie ikony globu flagami aktualnie wybranego języka.
-  - Naprawa błędów z zawieszaniem się aplikacji przy pustych polach w JSON.
-  - Dodanie przycisków nawigacji do darmowych parkingów.
-  - Podgląd zdjęć na pełnym ekranie z funkcją Zoom.
-* DODANE POI:
-  - Rynek, Kopiec, Sanktuarium św. Walentego, Pomnik św. Walentego, Grobla i staw, Kładka, Kościół NSPJ, Kopalnia PIAST (Strajk i Orkiestra).
+  - Odtwarzacz audio z obsługą playlist.
+  - System odwiedzin oparty na geofencingu.
+  - Wsparcie dla 3 języków: Polski, Angielski, Niemiecki.

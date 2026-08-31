@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bieruń Guide by KAD - Twój multimedialny przewodnik</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --light: #f8fafc;
+            --success: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--secondary); background-color: var(--light); }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+        .hero-title { font-size: 3rem; margin-bottom: 10px; }
+        .hero-subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .feature-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
+        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+
+        .changelog { margin-top: 60px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .version-tag { background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
+        .update-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .update-item:last-child { border-bottom: none; }
+        .update-date { color: #64748b; font-size: 0.9rem; margin-top: 5px; display: block; }
+        .update-list { margin-top: 15px; list-style-position: inside; }
+        .update-list li { margin-bottom: 8px; color: #334155; }
+
+        footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
+
+        .mockup { width: 100%; max-width: 300px; margin: 30px auto; display: block; border: 8px solid #333; border-radius: 30px; }
+
+        .qr-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        .qr-text {
+            font-size: 0.9rem;
+            color: #64748b;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="hero-title">Bieruń Guide by KAD</h1>
+        <p class="hero-subtitle">Odkryj historię Bierunia na nowo dzięki multimedialnemu przewodnikowi.</p>
+        <div style="margin-bottom: 10px;">
+            <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;">
+                <i class="fas fa-code-branch"></i> Aktualna wersja: v1.2
+            </span>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <a href="https://pyblog.cba.pl/app/bierun_guide.apk" class="download-btn">
+                <i class="fab fa-android"></i> Pobierz plik APK
+            </a>
+        </div>
+
+        <div class="qr-section">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://pyblog.cba.pl/app/bierun_guide.apk" alt="QR Code" class="qr-code">
+            <span class="qr-text"><i class="fas fa-camera"></i> Zeskanuj, aby pobrać na telefon</span>
+            <span class="qr-text" style="display: block; margin-top: 10px; font-weight: bold; color: var(--primary);">Link bezpośredni:</span>
+            <a href="https://pyblog.cba.pl/app/bierun_guide.apk" style="font-size: 0.8rem; word-break: break-all;">https://pyblog.cba.pl/app/bierun_guide.apk</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Interaktywna Mapa</h3>
+                <p>Odkrywaj punkty POI i zbieraj wirtualne odznaczenia za ich odwiedzenie.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headphones-alt"></i>
+                <h3>Historie Audio</h3>
+                <p>Słuchaj profesjonalnych nagrań lektorskich w trzech językach: PL, EN, DE.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-history"></i>
+                <h3>Archiwum Zdjęć</h3>
+                <p>Zobacz jak Bieruń wyglądał dawniej dzięki unikalnej galerii archiwalnej.</p>
+            </div>
+        </section>
+
+        <section class="changelog">
+            <h2 style="margin-bottom: 30px;"><i class="fas fa-rocket"></i> Co nowego?</h2>
+
+            <div class="update-item">
+                <span class="version-tag">Wersja 1.1</span>
+                <span class="update-date">30 sierpnia 2026</span>
+                <ul class="update-list">
+                    <li><strong>Lekka instalacja:</strong> Dzięki optymalizacji plików audio, aplikacja zajmuje teraz tylko kilkanaście MB.</li>
+                    <li><strong>Audio w tle:</strong> Możesz zablokować ekran i słuchać przewodnika podczas spaceru.</li>
+                    <li><strong>Nowa sekcja Archiwum:</strong> Eksploruj historyczne zdjęcia Bierunia z dokładnymi opisami.</li>
+                    <li><strong>Szybki interfejs:</strong> Natychmiastowa zmiana języka i wskaźniki ładowania multimediów.</li>
+                    <li><strong>Dostępność:</strong> Dodano instrukcję obsługi online oraz pełną politykę prywatności.</li>
+                </ul>
+            </div>
+
+            <div class="update-item">
+                <span class="version-tag">Wersja 1.0</span>
+                <span class="update-date">26 sierpnia 2026</span>
+                <ul class="update-list">
+                    <li>Pierwsza publiczna wersja aplikacji z mapą 9 najważniejszych punktów w Bieruniu.</li>
+                    <li>Wsparcie dla 3 języków i automatyczny system wykrywania lokalizacji użytkownika.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Bieruń Guide by KAD. Stworzone z pasji do lokalnej historii.</p>
+        <p>Kontakt: <a href="mailto:ka43150@gmail.com" style="color: var(--primary);">ka43150@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
