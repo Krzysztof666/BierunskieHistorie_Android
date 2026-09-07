@@ -1,5 +1,15 @@
 HISTORIA ZMIAN - Bieruń Guide by KAD
 
+v1.3 (07.09.2026)
+-----------------
+* FUNKCJONALNOŚĆ:
+  - Wprowadzenie systemu powiadomień o nowych aktualizacjach wewnątrz aplikacji.
+  - Automatyczne pobieranie i instalowanie nowych plików APK z serwera.
+  - Zmiany w sekcji Archiwum: Podział na podkategorie Zdjęcia, Artyści oraz Wydarzenia.
+  - Wbudowana obsługa odtwarzania linków YouTube dla archiwalnych wywiadów i wydarzeń.
+* NOWE MATERIAŁY:
+  - Zaktualizowano profile artystów: Roman Nyga, Karol Chrobok, Paulina Bobak.
+
 v1.2 (31.08.2026)
 -----------------
 * FUNKCJONALNOŚĆ:

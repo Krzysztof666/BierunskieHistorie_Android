@@ -54,6 +54,7 @@ fun MainScreen(
     podcastRepository: PodcastRepository,
     userProgressRepository: UserProgressRepository,
     archiveRepository: ArchiveRepository,
+    updateManager: UpdateManager,
     isLocationPermissionGranted: Boolean
 ) {
     var currentLanguage by remember { mutableStateOf(languageManager.getCurrentLanguage()) }
@@ -98,6 +99,13 @@ fun MainScreen(
         var showMockLocationDialog by remember { mutableStateOf(false) }
         var mockLocation by remember { mutableStateOf<LatLng?>(null) }
         var realLocation by remember { mutableStateOf<LatLng?>(null) }
+        
+        var updateInfo by remember { mutableStateOf<AppVersionInfo?>(null) }
+        var isDownloadingUpdate by remember { mutableStateOf(false) }
+
+        LaunchedEffect(Unit) {
+            updateInfo = updateManager.checkForUpdates()
+        }
 
         var isPlaying by remember { mutableStateOf(false) }
         var isBuffering by remember { mutableStateOf(false) }
@@ -196,7 +204,7 @@ fun MainScreen(
                                     }
                                 )
                                 Text(
-                                    text = "v1.2 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
+                                    text = "v1.3 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.secondary
                                 )
@@ -325,6 +333,33 @@ fun MainScreen(
                         showMockLocationDialog = false
                         scope.launch { cameraPositionState.animate(CameraUpdateFactory.newLatLngZoom(location, 17f)) }
                     }, onDismiss = { showMockLocationDialog = false })
+                }
+                
+                updateInfo?.let { info ->
+                    AlertDialog(
+                        onDismissRequest = { updateInfo = null },
+                        title = { Text("Dostępna aktualizacja") },
+                        text = { 
+                            Column {
+                                Text("Nowa wersja: ${info.versionName}")
+                                Spacer(Modifier.height(8.dp))
+                                Text(info.releaseNotes)
+                            }
+                        },
+                        confirmButton = {
+                            Button(
+                                onClick = { 
+                                    updateManager.downloadAndInstall(info.downloadUrl) {
+                                        isDownloadingUpdate = true
+                                    }
+                                    updateInfo = null
+                                }
+                            ) { Text(if (isDownloadingUpdate) "Pobieranie..." else "Pobierz i zainstaluj") }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { updateInfo = null }) { Text("Później") }
+                        }
+                    )
                 }
 
                 selectedPoi?.let { poi ->

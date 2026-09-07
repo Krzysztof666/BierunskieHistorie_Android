@@ -47,7 +47,7 @@
     "latitude": 50.087854,
     "longitude": 19.098303,
     "radiusMeters": 30.0,
-    "audioFileName": "staw_1.mp3",
+    "audioFiles": ["staw_1.mp3", "staw_2.mp4"],
     "images": ["staw_1.jpg"]
   },
   {

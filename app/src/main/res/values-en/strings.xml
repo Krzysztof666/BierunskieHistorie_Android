@@ -15,6 +15,9 @@
     <string name="info_label">Help</string>
     <string name="info_url">https://pyblog.cba.pl/app/bierunguide/info_en.html</string>
     <string name="archive_title">Archive</string>
+    <string name="archive_tab_photos">Photos</string>
+    <string name="archive_tab_artists">Artists</string>
+    <string name="archive_tab_events">Events</string>
     <string name="website_label">News</string>
     <string name="website_url">https://pyblog.cba.pl/app/bierunguide/index.html</string>
 </resources>
