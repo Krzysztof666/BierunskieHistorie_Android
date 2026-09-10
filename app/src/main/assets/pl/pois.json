@@ -48,7 +48,7 @@
     "longitude": 19.098303,
     "radiusMeters": 30.0,
     "audioFiles": ["staw_1.mp3", "staw_2.mp4"],
-    "images": ["staw_1.jpg"]
+    "images": ["staw_1.jpg", "staw_2.jpg"]
   },
   {
     "id": "kladka",
@@ -119,5 +119,15 @@
     "radiusMeters": 100.0,
     "audioFileName": "kop_piast_orkiestra.mp3",
     "images": ["kop_piast_orkiestra_1.jpg", "kop_piast_orkiestra_2.jpg"]
+  },
+  {
+    "id": "mini_arboretum",
+    "title": "Mini Arboretum",
+    "description": "Mini Arboretum (nazywanego również parkiem sensorycznym lub ogrodem botanicznym), zlokalizowanego w Bieruniu-Bijasowicach przy ul. Bijasowickiej.",
+    "latitude": 50.064947,
+    "longitude": 19.159526,
+    "radiusMeters": 100.0,
+    "audioFileName": "glosy_ptakow.mp3",
+    "images": ["arboretum_1.jpg", "arboretum_2.jpg"]
   }
 ]

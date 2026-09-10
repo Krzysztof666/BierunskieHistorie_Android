@@ -78,7 +78,9 @@ fun MainScreen(
             listOf(
                 PoiItem("parking_p1", "Parking darmowy P1", "Darmowy parking dla zwiedzających", 50.09282, 19.088958, 0f, ""),
                 PoiItem("parking_p2", "Parking darmowy P2", "Darmowy parking dla zwiedzających", 50.09250, 19.08894, 0f, ""),
-                PoiItem("parking_p3", "Parking P3 (Jez. Łysina)", "Płatny w miesiącach letnich", 50.089031, 19.073008, 0f, "")
+                PoiItem("parking_p3", "Parking P3 (Jez. Łysina)", "Płatny w miesiącach letnich", 50.089031, 19.073008, 0f, ""),
+                PoiItem("parking_p4", "Parking darmowy P4 (Mini Arboretum)", "Darmowy parking dla odwiedząjących", 50.064361, 19.157637, 0f, ""),
+
             )
         }
         
@@ -204,7 +206,7 @@ fun MainScreen(
                                     }
                                 )
                                 Text(
-                                    text = "v1.3 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
+                                    text = "v1.4 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.secondary
                                 )

@@ -1,5 +1,16 @@
 HISTORIA ZMIAN - Bieruń Guide by KAD
 
+v1.4 (10.09.2026)
+-----------------
+* FUNKCJONALNOŚĆ:
+  - Aktualizacja mechanizmu obsługi wideo (odtwarzanie strumieni wideo z serwera w formie samego audio przez ExoPlayer).
+  - Wzbogacenie i rozszerzenie galerii zdjęciowych w poszczególnych punktach.
+* NOWE POI ORAZ ZMIANY W OBECNYCH:
+  - [NOWOŚĆ] Dodano Jednostkę Ratowniczo-Gaśniczą PSP w Bieruniu Nowym.
+  - [NOWOŚĆ] Dodano Mini Arboretum wraz z nową ścieżką dźwiękową (glosy_ptakow.mp3).
+  - Zaktualizowano galerie dla punktów: Rynek (dodano zdjęcia archiwalne i opisy historyczne), Staw.
+  - Dodano do ścieżek audio powiązane pliki wideo jako kolejne utwory z listy: Ostatnia Szychta (Kopalnia Piast), film przy Pomniku Św. Walentego.
+
 v1.3 (07.09.2026)
 -----------------
 * FUNKCJONALNOŚĆ:
