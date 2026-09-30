@@ -206,7 +206,7 @@ fun MainScreen(
                                     }
                                 )
                                 Text(
-                                    text = "v1.4 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
+                                    text = "v1.5 | " + stringResource(R.string.visited_count, visitedPois.intersect(pois.map { it.id }.toSet()).size, pois.size),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.secondary
                                 )

@@ -1,5 +1,11 @@
 HISTORIA ZMIAN - Bieruń Guide by KAD
 
+v1.5 (30.09.2026)
+-----------------
+* NOWE POI ORAZ ZMIANY W OBECNYCH:
+  - [NOWOŚĆ] Dodano Ochotniczą Straż Pożarną Bieruń Stary.
+  - [NOWOŚĆ] Dodano Punkt wkładań PZHGP Sekcja Bieruń Stary wraz z materiałami wideo.
+
 v1.4 (10.09.2026)
 -----------------
 * FUNKCJONALNOŚĆ:

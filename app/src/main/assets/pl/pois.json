@@ -129,5 +129,25 @@
     "radiusMeters": 100.0,
     "audioFileName": "glosy_ptakow.mp3",
     "images": ["arboretum_1.jpg", "arboretum_2.jpg"]
+  },
+  {
+    "id": "osp_bierun_stary",
+    "title": "OSP Bieruń Stary",
+    "description": "Ochotnicza Straż Pożarna Bieruń Stary. Rok zał. 1896",
+    "latitude": 50.094543,
+    "longitude": 19.091109,
+    "radiusMeters": 20.0,
+    "audioFileName": "Straż_Pożarna_Bieruń_Stary_2026.mp4",
+    "images": ["OSP_Bieruń_Stary.jpg"    ]
+  },
+  {
+    "id": "pzhgp_bierun_stary",
+    "title": "PZHGP Sekcja Bieruń Stary",
+    "description": "Punkt wkładań w Bieruniu Starym",
+    "latitude": 50.092363,
+    "longitude": 19.096640,
+    "radiusMeters": 20.0,
+    "audioFiles": ["80lat_pzhgp_bierun_stary.mp4", "Pigeon_Heroes.mp4"],
+    "images": ["PZHGP_Punkt_wkładań_Bieruń_Stary.jpg"]
   }
 ]
