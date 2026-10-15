@@ -1,5 +1,13 @@
 HISTORIA ZMIAN - Bieruń Guide by KAD
 
+v1.6 (14.10.2026)
+-----------------
+* NOWE POI ORAZ ZMIANY W OBECNYCH:
+  - [NOWOŚĆ] Dodano punkt POI: Kościół św. Barbary w Bieruniu Nowym wraz z materiałem wideo i bogatą galerią.
+  - Skorygowano dokładne współrzędne (latitude/longitude) dla punktu OSP Bieruń Stary.
+* ARCHIWUM:
+  - Wzbogacono galerię zdjęć w sekcji Archiwum o nowe materiały historyczne.
+
 v1.5 (30.09.2026)
 -----------------
 * NOWE POI ORAZ ZMIANY W OBECNYCH:
