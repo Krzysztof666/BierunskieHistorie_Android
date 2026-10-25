@@ -1,5 +1,12 @@
 HISTORIA ZMIAN - Bieruń Guide by KAD
 
+v1.7 (25.10.2026)
+-----------------
+* NOWE POI ORAZ ZMIANY W OBECNYCH:
+  - [NOWOŚĆ] Dodano punkt POI: Pomnik Alfreda Nobla (jedyny w Polsce pomnik wynalazcy dynamitu). Dodano unikalny materiał wideo "Dynamit w Bieruniu".
+* ARCHIWUM / WYDARZENIA:
+  - Dodano nowe nagranie wideo do Archiwum -> Wydarzenia: Koncert "Missa pro pace" Wojciecha Kilara (Jubileusz Orkiestry KWK Piast).
+
 v1.6 (14.10.2026)
 -----------------
 * NOWE POI ORAZ ZMIANY W OBECNYCH:

@@ -159,5 +159,15 @@
     "radiusMeters": 20.0,
     "audioFileName": "BH_Kościół_św_Barbary.mp4",
     "images": ["kosciol_sw_barbary_026.jpg", "kosciol_sw_barbary_022.jpg", "kosciol_sw_barbary_098.jpg", "kosciol_sw_barbary_095.jpg"]
+  },
+  {
+    "id": "pomnik_alfreda_nobla",
+    "title": "Pomnik Alfreda Nobla w Bieruniu",
+    "description": "Jedyny pomnik wynalazcy dynamitu w Polsce",
+    "latitude": 50.080503,
+    "longitude": 19.082905,
+    "radiusMeters": 20.0,
+    "audioFileName": "Dynamit_w_Bieruniu.mp4",
+    "images": ["pomnik_nobla_bierun.jpg"]
   }
 ]
